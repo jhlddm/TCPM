@@ -1,0 +1,6 @@
+# Hidden files except for .gitignore file
+.*
+!.gitignore
+
+# Log files
+cache/multipie.log
