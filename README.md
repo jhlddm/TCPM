@@ -20,8 +20,8 @@ First of all, see the following part of the code.
 
 **opts.partpoolsize** is a sum over the number of parts of every different model. In the original setting, we have total of 3 different models for detecting the left, front, and right side of faces. These three models are composed of 39, 68, and 39 parts respectively. Thus we have the value of 39+68+39 in result.
 
-Change these two properly to work well with your model. For instance, if we want to use a single model composed of 15 parts, and viewpoints to detect are 45, 0, and -45 degree, then the code above should be modified like:
+Change these two properly to work well with your model. For instance, if we want to use a single model composed of 15 parts, and viewpoints to detect are 15, 0, and -15 degree, then the code above should be modified like:
 
-    opts.viewpoint = [45, 0, -45];
+    opts.viewpoint = [15, 0, -15];
     opts. partpoolsize = 15;
 
