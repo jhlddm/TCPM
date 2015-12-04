@@ -25,3 +25,8 @@ Change these two properly to work well with your model. For instance, if we want
     opts.viewpoint = [15, 0, -15];
     opts. partpoolsize = 15;
 
+And then, we specify the structure of our single or mixtured models concretly. Considering the original code again, we have mixture of 13 models, and model 1 to 3 are of left side view, 4 to 9 are front view, and the rest of them, 10 to 13 are of right side view. For better understanding, illustration of model 7 is like:
+
+![front view model among the original mixture of models]
+(https://app.box.com/representation/file_version_46455299025/image_2048/1.png?shared_name=auewm72tu71q8s7pts8vulcg1czzp1ma)
+
