@@ -30,3 +30,4 @@ And then, we specify the structure of our single or mixtured models concretly. C
 ![front view model among the original mixture of models]
 (https://app.box.com/representation/file_version_46455299025/image_2048/1.png?shared_name=auewm72tu71q8s7pts8vulcg1czzp1ma)
 
+Note that every point in the figure above is labeled with an unique ID number. For the convenience of annotation work, we have two types of labeling orders, one of which is **annotation order**, and the other is **tree order** (labels in the figure above).
