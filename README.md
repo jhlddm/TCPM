@@ -9,6 +9,7 @@
 
 ### Designing mixture of models
 
+We use a mixture of models for face detection. Mixture of models are literally composed of multiple models. 
 
 ### Preparing the training data
 
