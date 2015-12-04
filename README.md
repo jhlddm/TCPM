@@ -38,3 +38,4 @@ And then, we specify the structure of our single or mixtured models concretly. C
 
 Note that every point in the figure above is labeled with an unique ID number. For the convenience of annotation work, we have two types of labeling orders, one of which is **annotation order** (left), and the other is **tree order** (right).
 
+**Annotation order** is the ordering system under which the annotations (coordinates of landmark points) on the training images were made, while **tree order** is of the actual tree structure of a model.
