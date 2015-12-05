@@ -7,9 +7,11 @@
 
 ----
 
-### Designing mixture of models
+### Designing a mixture of models
 
-We use a mixture of models for face detection. Mixture of models are literally composed of multiple models. 
+We use a mixture of models for face detection. Let's first look into the original model implemented in the code. As for the original mixture of models, total of 13 models form a mixture. Let the model 1 to 3, 4 to 10, and 11 to 13 be group A, B, and C respectively.
+
+Model 1 to 3 are for purpose of detecting the faces heading toward left (90, 75, 60 degree) and let them , model 4 to 10 are for the faces heading for front (45, 30, 15, 0, 15, -30, -45 degree), and the other, model 11 to 13, are for faces heading right (-60, -75, -90).
 
 ### Preparing the training data
 
