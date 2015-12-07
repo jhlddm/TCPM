@@ -9,7 +9,14 @@
 
 ### Designing a mixture of models
 
-We use a mixture of models for face detection. Let's first look into the original model implemented in the code. As for the original mixture of models, total of 13 models form a mixture. Let the model 1 to 3, 4 to 10, and 11 to 13 be group A, B, and C respectively.
+We use a mixture of models for face detection. Let's first look into the original model implemented in the code. As for the original mixture of models, total of 13 models form a mixture. Model 1 to 3 have the same tree structure, and are of purpose of detecting human faces which are heading left. Model 4 to 10, in sequence, have the same tree structure, and these 7 are for detecting the frontal faces. The remaining 3 (model 11 to 13) have the same tree structure, and are for detecting the faces heading right.
+
+For better understanding, structure of the model 7 is constructed like below:
+
+![Model 7: Frontal facial model]
+(https://app.box.com/representation/file_version_46475297905/image_2048/1.png?shared_name=gzgx1r7gjffb1f9ebjhyng73ezg0gt5u)
+
+
 
 Model 1 to 3 are for purpose of detecting the faces heading toward left (90, 75, 60 degree) and let them , model 4 to 10 are for the faces heading for front (45, 30, 15, 0, 15, -30, -45 degree), and the other, model 11 to 13, are for faces heading right (-60, -75, -90).
 
