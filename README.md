@@ -14,7 +14,7 @@ We use a mixture of models for face detection. Let's first look into the origina
 For better understanding, structure of the model 7 is constructed like below:
 
 ![Model 7: Frontal facial model]
-(https://app.box.com/representation/file_version_46475297905/image_2048/1.png?shared_name=gzgx1r7gjffb1f9ebjhyng73ezg0gt5u)
+(https://app.box.com/representation/file_version_46881226973/image_2048/1.png?shared_name=iexa0gvaqo0d93upayrr6jyqds2hy2bn)
 
 Note that there are two kind of labeling (numbering) systems. One is **annotation order** and the other is **tree order**. **Annotation order** is the ordering system under which the annotations (coordinates of landmark points) on the training images were made, while **tree order** is of the actual tree structure of a model used on the score evaluation stage.
 
