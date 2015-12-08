@@ -34,7 +34,11 @@ For example, simpler model might be like:
 ![Simpler model example]
 (https://app.box.com/representation/file_version_46455296141/image_2048/1.png?shared_name=32riry0hs11tbf4dah13djvwqh5p1rji)
 
+The following material of this document is based on a mixture of models which consists of 3 models. Each of three models corresponds to viewpoints of 30, 0, -30 degree, respectively. And all the models have the same tree structure as shown above.
+
+
 ### Preparing the training data
+
 
 
 ### Edit "multipie_init.m"
