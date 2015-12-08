@@ -20,10 +20,16 @@ Note that there are two kind of labeling (numbering) systems. One is **annotatio
 
 If you want to use a new facial model, follow the next steps.
 
-1) Design a tree structure which maps to the human faces.
-2) Give labels to nodes of tree. As mentioned earlier, each node should be labeled with two numbers, one for annotation ordering system, and the other for tree ordering system.
+1) Construct a mixture of models. Decide how many models the mixture consists of.
+2) Design a tree structure which fit to the human faces for each model.
+3) Give labels to nodes of trees. As mentioned earlier, each node should be labeled with two numbers, one for annotation ordering system, and the other for tree ordering system.
 * Annotation order: If you have annotations within the training data, then you have to follow the labeling order of those annotations.
 * Tree order: Be aware that the id number of parent nodes should be larger than their children's.
+
+For example, simpler model might be like:
+
+![Simpler model example]
+(https://app.box.com/representation/file_version_46455296141/image_2048/1.png?shared_name=32riry0hs11tbf4dah13djvwqh5p1rji)
 
 ### Preparing the training data
 
