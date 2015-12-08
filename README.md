@@ -5,6 +5,14 @@
 
 ## Table of Contents
 
+* [Design a mixture of models](#design_a_mixture_of_models)
+* [Prepare dataset](#prepare_dataset)
+* [Edit multipie_init.m](#edit_multipie_init.m)
+* [Edit multipie_data.m](#edit_multipie_data.m)
+* [Edit multipie.mat](#edit_multipie.mat)
+* [Run multipie_main.m](#run_multipie_main.m)
+
+
 ----
 
 ### Design a mixture of models
@@ -35,7 +43,7 @@ For example, simpler model might be like:
 The following material of this document is based on a mixture of models which consists of 3 models. Each of three models corresponds to viewpoints of 30, 0, -30 degree, respectively. And all the models have the same tree structure as shown above.
 
 
-### Prepare the dataset
+### Prepare dataset
 
 For training set, we need data of following files to be prepared:
 * Image files that include the human faces which we aim to detect.
@@ -56,7 +64,7 @@ The training data might be structured like:
     *anno_dir*/*image_name_n_lb.mat*
 
 
-### Edit "multipie_init.m"
+### Edit multipie_init.m
 
 As the first step of change in codes, open **"multipie_init.m"** file located at the project root directory, and modify as follows.
 
@@ -102,7 +110,7 @@ As a result, the original codes might be changed as follows:
     opts.mixture(3) = opts.mixture(1);
 
 
-### Edit "multipie_data.m"
+### Edit multipie_data.m
 
 This **"multipie_data.m"** file does the data preparation work.
 
@@ -111,12 +119,12 @@ First, define what images in our dataset will be used for training set, and what
 Next, set the pathes where the image and annotation in the dataset are located. **multipiedir** is a path for image files, and **annodir** is a path for annotation files.
 
 
-### Edit "multipie.mat"
+### Edit multipie.mat
 
 This .mat file includes a struct variable named **multipie** which includes the name of the image files classified by the models in our mixture. You may consult the **"make_multipie_info"** script in **tools/** directory to make your own **multipie** variable more easily.
 
 
-### Run "multipie_main.mat"
+### Run multipie_main.m
 
 1. Run **"compile.m"** file first.
 2. Run **"multipie_main"** file. This script trains the model using the prepared dataset, evaluate the trained model, and even shows the result graphically.
