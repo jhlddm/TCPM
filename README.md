@@ -16,9 +16,14 @@ For better understanding, structure of the model 7 is constructed like below:
 ![Model 7: Frontal facial model]
 (https://app.box.com/representation/file_version_46475297905/image_2048/1.png?shared_name=gzgx1r7gjffb1f9ebjhyng73ezg0gt5u)
 
+Note that there are two kind of labeling (numbering) systems. One is **annotation order** and the other is **tree order**. **Annotation order** is the ordering system under which the annotations (coordinates of landmark points) on the training images were made, while **tree order** is of the actual tree structure of a model used on the score evaluation stage.
 
+If you want to use a new facial model, follow the next steps.
 
-Model 1 to 3 are for purpose of detecting the faces heading toward left (90, 75, 60 degree) and let them , model 4 to 10 are for the faces heading for front (45, 30, 15, 0, 15, -30, -45 degree), and the other, model 11 to 13, are for faces heading right (-60, -75, -90).
+1) Design a tree structure which maps to the human faces.
+2) Give labels to nodes of tree. As mentioned earlier, each node should be labeled with two numbers, one for annotation ordering system, and the other for tree ordering system.
+* Annotation order: If you have annotations within the training data, then you have to follow the labeling order of those annotations.
+* Tree order: Be aware that the id number of parent nodes should be larger than their children's.
 
 ### Preparing the training data
 
@@ -48,4 +53,4 @@ And then, we specify the structure of our single or mixtured models concretly. C
 
 Note that every point in the figure above is labeled with an unique ID number. For the convenience of annotation work, we have two types of labeling orders, one of which is **annotation order** (left), and the other is **tree order** (right).
 
-**Annotation order** is the ordering system under which the annotations (coordinates of landmark points) on the training images were made, while **tree order** is of the actual tree structure of a model.
+
