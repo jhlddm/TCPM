@@ -37,7 +37,7 @@ The following material of this document is based on a mixture of models which co
 
 ### Preparing the training data
 
-For training, two kinds of data:
+For training set, we need data of following files to be prepared:
 * Image files that include the human faces which we aim to detect.
 * Annotation files on images that include the coordinate values of landmark points (same as the center of parts in the models)
 
@@ -46,7 +46,7 @@ For each of all the image files, there should be an annotation file named "[Imag
 
 ### Edit "multipie_init.m"
 
-As the first step, open **"multipie_init.m"** file located at the project root directory, and modify as follows.
+As the first step of change in codes, open **"multipie_init.m"** file located at the project root directory, and modify as follows.
 
 First of all, see the following part of the code.
 
@@ -57,16 +57,35 @@ First of all, see the following part of the code.
 
 **opts.partpoolsize** is a sum over the number of parts of every different model. In the original setting, we have total of 3 different models for detecting the left, front, and right side of faces. These three models are composed of 39, 68, and 39 parts respectively. Thus we have the value of 39+68+39 in result.
 
-Change these two properly to work well with your model. For instance, if we want to use a single model composed of 15 parts, and viewpoints to detect are 15, 0, and -15 degree, then the code above should be modified like:
+Change these two properly to work well with our model. Then the code above should be modified to be like:
 
-    opts.viewpoint = [15, 0, -15];
+    opts.viewpoint = [30, 0, -30];
     opts. partpoolsize = 15;
 
-And then, we specify the structure of our single or mixtured models concretly. Considering the original code again, we have mixture of 13 models, and model 1 to 3 are of left side view, 4 to 9 are front view, and the rest of them, 10 to 13 are of right side view. For better understanding, illustration of model 7 is like:
+And then, we specify mixture of models concretly. We have three models in our mixture of models, so what we have to do in this section is to define **opts.mixture(1), opts.mixture(2), and opts.mixture(3)** which correspond to our three models.
 
-![front view model among the original mixture of models]
-(https://app.box.com/representation/file_version_46475297905/image_2048/1.png?shared_name=gzgx1r7gjffb1f9ebjhyng73ezg0gt5u)
+Let's define a **opts.mixture(1)** first.
 
-Note that every point in the figure above is labeled with an unique ID number. For the convenience of annotation work, we have two types of labeling orders, one of which is **annotation order** (left), and the other is **tree order** (right).
+At first, **poolid** should be a list of integer from 1 to 15, because every single model of our mixture has 15 parts.
 
+Next, the variable **I** and **J** define a transformation relation between the annotation and tree order labels. Let **I** have a array of integer range from 1 to the number of parts. And then, take a close look at **J**. The k'th number in array J, say n<sub>k</sub>, means that the node labeled with k in tree order is labeled with n<sub>k</sub> in annotation order.
+
+**S** in the next line should be modified to be the array consisting of ones that takes the number of parts as it's length.
+
+Using the variables defined above, we set the **anno2treeorder** to represent the transformation matrix from annotation to tree order. Just replace the 4th, and 5th argument of the sparse() function with the number of parts.
+
+Finally, **pa** specifies the id number of parent of each nodes. Note that you should follow the tree order in refering to a node here.
+
+As a result, the original codes might be changed as follows:
+
+    % Global mixture 1 to 3, left, frontal, and right face
+    opts.mixture(1).poolid = 1:15;
+    I = 1:15;
+    J = [9 10 11 8 7 3 2 1 6 5 4 12 13 14 15];
+    S = ones(1,15);
+    opts.mixture(1).anno2treeorder = full(sparse(I,J,S,15,15)); % label transformation
+    opts.mixture(1).pa = [0 1 1 1 4 5 6 7 5 9 10 1 12 12 12];
+    
+    opts.mixture(2) = opts.mixture(1);
+    opts.mixture(3) = opts.mixture(1);
 
