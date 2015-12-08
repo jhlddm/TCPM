@@ -16,13 +16,14 @@ For better understanding, structure of the model 7 is constructed like below:
 ![Model 7: Frontal facial model]
 (https://app.box.com/representation/file_version_46881226973/image_2048/1.png?shared_name=iexa0gvaqo0d93upayrr6jyqds2hy2bn)
 
-Note that there are two kind of labeling (numbering) systems. One is **annotation order** and the other is **tree order**. **Annotation order** is the ordering system under which the annotations (coordinates of landmark points) on the training images were made, while **tree order** is of the actual tree structure of a model used on the score evaluation stage.
+Note that there are two kinds of labeling (numbering) systems. One is **annotation order** and the other is **tree order**. **Annotation order** is the ordering system under which the annotations (coordinates of landmark points) on the training images were made, while **tree order** is of the actual tree structure of a model used on the score evaluation stage.
 
 If you want to use a new facial model, follow the next steps.
 
 1.  Construct a mixture of models. Decide how many models the mixture consists of.
 2.  Design a tree structure which fit to the human faces for each model.
 3.  Give labels to nodes of trees. As mentioned earlier, each node should be labeled with two numbers, one for annotation ordering system, and the other for tree ordering system.
+
 * Annotation order: If you have annotations within the training data, then you have to follow the labeling order of those annotations.
 * Tree order: Be aware that the id number of parent nodes should be larger than their children's.
 
@@ -36,6 +37,11 @@ The following material of this document is based on a mixture of models which co
 
 ### Preparing the training data
 
+For training, two kinds of data:
+* Image files that include the human faces which we aim to detect.
+* Annotation files on images that include the coordinate values of landmark points (same as the center of parts in the models)
+
+For each of all the image files, there should be an annotation file named "[Image file name]_lb.mat" in the certain directory for annotation files. These are .mat files, where the coordinate values of landmark points are stored using a matrix variable named "pts". As for our simple model, size of the matrix "pts" is 15 by 2, cause we have 15 landmark points per an image. The first column refers to the x values of landmark points, and the second column refers to the y values, and each of 15 rows corresponds to each landmark point.
 
 
 ### Edit "multipie_init.m"
