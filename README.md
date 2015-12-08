@@ -7,10 +7,10 @@
 
 * [Design a mixture of models](#design-a-mixture-of-models)
 * [Prepare dataset](#prepare-dataset)
-* [Edit multipie_init.m](#edit-multipie_init.m)
-* [Edit multipie_data.m](#edit-multipie_data.m)
-* [Edit multipie.mat](#edit-multipie.mat)
-* [Run multipie_main.m](#run-multipie_main.m)
+* [Edit multipie_init.m](#edit-multipie_initm)
+* [Edit multipie_data.m](#edit-multipie_datam)
+* [Edit multipie.mat](#edit-multipiemat)
+* [Run multipie_main.m](#run-multipie_mainm)
 
 
 ----
