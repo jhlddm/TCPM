@@ -7,7 +7,7 @@
 
 ----
 
-### Designing a mixture of models
+### Design a mixture of models
 
 We use a mixture of models for face detection. Let's first look into the original model implemented in the code. As for the original mixture of models, total of 13 models form a mixture. Model 1 to 3 have the same tree structure, and are of purpose of detecting human faces which are heading left. Model 4 to 10, in sequence, have the same tree structure, and these 7 are for detecting the frontal faces. The remaining 3 (model 11 to 13) have the same tree structure, and are for detecting the faces heading right.
 
@@ -35,13 +35,25 @@ For example, simpler model might be like:
 The following material of this document is based on a mixture of models which consists of 3 models. Each of three models corresponds to viewpoints of 30, 0, -30 degree, respectively. And all the models have the same tree structure as shown above.
 
 
-### Preparing the training data
+### Prepare the dataset
 
 For training set, we need data of following files to be prepared:
 * Image files that include the human faces which we aim to detect.
 * Annotation files on images that include the coordinate values of landmark points (same as the center of parts in the models)
 
 For each of all the image files, there should be an annotation file named "[Image file name]_lb.mat" in the certain directory for annotation files. These are .mat files, where the coordinate values of landmark points are stored using a matrix variable named "pts". As for our simple model, size of the matrix "pts" is 15 by 2, cause we have 15 landmark points per an image. The first column refers to the x values of landmark points, and the second column refers to the y values, and each of 15 rows corresponds to each landmark point.
+
+The training data might be structured like:
+
+    [ Image files ]
+    *image_dir*/*image_name_1.jpg*
+    ...
+    *image_dir*/*image_name_n.jpg*
+    
+    [ Annotation files ]
+    *anno_dir*/*image_name_1_lb.mat*
+    ...
+    *anno_dir*/*image_name_n_lb.mat*
 
 
 ### Edit "multipie_init.m"
@@ -89,3 +101,22 @@ As a result, the original codes might be changed as follows:
     opts.mixture(2) = opts.mixture(1);
     opts.mixture(3) = opts.mixture(1);
 
+
+### Edit "multipie_data.m"
+
+This **"multipie_data.m"** file does the data preparation work.
+
+First, define what images in our dataset will be used for training set, and what images for test set. Modify the lists **trainlist** and **testlist** properly based on the prepared dataset.
+
+Next, set the pathes where the image and annotation in the dataset are located. **multipiedir** is a path for image files, and **annodir** is a path for annotation files.
+
+
+### Edit "multipie.mat"
+
+This .mat file includes a struct variable named **multipie** which includes the name of the image files classified by the models in our mixture. You may consult the **"make_multipie_info"** script in **tools/** directory to make your own **multipie** variable more easily.
+
+
+### Run "multipie_main.mat"
+
+1. Run **"compile.m"** file first.
+2. Run **"multipie_main"** file. This script trains the model using the prepared dataset, evaluate the trained model, and even shows the result graphically.
