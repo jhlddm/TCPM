@@ -5,6 +5,7 @@
 
 ## Table of Contents
 
+* [Copyright](#copyright)
 * [Design a mixture of models](#design-a-mixture-of-models)
 * [Prepare dataset](#prepare-dataset)
 * [Edit multipie_init.m](#edit-multipie_initm)
@@ -14,6 +15,13 @@
 
 
 ----
+
+### Copyright
+
+This code is entirely based on the published code [1]. This document is a tutorial that instructs how to exploit this code with the mixture of models in the original code replaced with yours.
+
+[1] Xiangxin Zhu, Deva Ramanan. Face detection, pose estimation, and landmark localization in the wild. Computer Vision and Pattern Recognition (CVPR) Providence, Rhode Island, June 2012. 
+
 
 ### Design a mixture of models
 
