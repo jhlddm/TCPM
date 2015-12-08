@@ -5,12 +5,12 @@
 
 ## Table of Contents
 
-* [Design a mixture of models](#design_a_mixture_of_models)
-* [Prepare dataset](#prepare_dataset)
-* [Edit multipie_init.m](#edit_multipie_init.m)
-* [Edit multipie_data.m](#edit_multipie_data.m)
-* [Edit multipie.mat](#edit_multipie.mat)
-* [Run multipie_main.m](#run_multipie_main.m)
+* [Design a mixture of models](#design-a-mixture-of-models)
+* [Prepare dataset](#prepare-dataset)
+* [Edit multipie_init.m](#edit-multipie_init.m)
+* [Edit multipie_data.m](#edit-multipie_data.m)
+* [Edit multipie.mat](#edit-multipie.mat)
+* [Run multipie_main.m](#run-multipie_main.m)
 
 
 ----
